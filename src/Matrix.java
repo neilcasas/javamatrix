@@ -75,4 +75,27 @@ public class Matrix {
         }
         return true;
     }
+
+    // Adds two matrices and stores values in this matrix
+    public void add(Matrix other){
+        if(this.rows == other.rows && this.columns == other.columns){
+            for(int i = 0; i < this.rows; i++){
+                for(int j = 0; j < this.columns; j++){
+                    this.matrix[i][j] += other.matrix[i][j];
+                }
+            }
+        }
+    }
+
+    // Subtracts two matrices and stores values in this matrix
+    public void subtract(Matrix other){
+        if(this.rows == other.rows && this.columns == other.columns){
+            for(int i = 0; i < this.rows; i++){
+                for(int j = 0; j < this.columns; j++){
+                    this.matrix[i][j] -= other.matrix[i][j];
+                }
+            }
+        }
+    }
+
 }
