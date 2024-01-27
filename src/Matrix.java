@@ -1,5 +1,8 @@
+import java.util.Scanner;
 public class Matrix {
-    private final int max = 20;
+    static Scanner scan = new Scanner(System.in);
+
+    private final int max = 20; // maximum row and column value
     private int rows;
     private int columns;
     private int[][] matrix;
@@ -19,6 +22,23 @@ public class Matrix {
     }
 
     // Methods
+
+    // Add element to matrix based on row col location
+    public void append(int row, int column, int value){
+        this.matrix[row][column] = value;
+    }
+
+    // Fills up new matrix
+    public void fill(){
+        for(int i = 0; i < this.rows; i++){
+            for(int j = 0; j < this.columns; j++){
+                System.out.printf("Enter value for position %d,%d: ", i, j);
+                this.matrix[i][j] = scan.nextInt();
+            }
+        }
+    }
+
+    // Display each element of the matrix
     public void display(){
         for(int i = 0; i < this.rows; i++){
             for(int j = 0; j < this.columns; j++){
@@ -27,11 +47,28 @@ public class Matrix {
             System.out.println();
         }
     }
+
+    // Determine if square matrix or not
     public boolean isSquareMatrix(){
         return this.rows == this.columns;
     }
-    public void append(int row, int column, int value){
-        this.matrix[row][column] = value;
+
+    // Multiply matrix with scalar quantity
+    public void scalarMultiply(int value){
+        for(int i = 0; i < this.rows; i++){
+            for(int j = 0; j < this.columns; j++){
+                this.matrix[i][j] *= value;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Matrix matrix = new Matrix(2,2);
+        matrix.fill();
+        matrix.display();
+        matrix.scalarMultiply(8);
+        matrix.display();
+
     }
 
 }
