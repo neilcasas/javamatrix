@@ -7,6 +7,8 @@ public class Matrix {
     // Constructor
     public Matrix(int rows, int columns){
         if(rows <= max && columns <= max){
+            this.rows = rows;
+            this.columns = columns;
             matrix = new int[rows][columns];
         } else {
             throw new IllegalArgumentException("Invalid matrix dimension.");
@@ -16,5 +18,13 @@ public class Matrix {
         matrix = new int[3][3];
     }
 
-    
+    // Methods
+    public void displayMatrix(Matrix matrix){
+        
+    }
+    public boolean isSquareMatrix(Matrix matrix){
+        return this.rows == this.columns;
+    }
+
+
 }
