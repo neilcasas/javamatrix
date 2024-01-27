@@ -109,6 +109,7 @@ public class Matrix {
         return transposed;
     }
 
+    // Return true if the matrix is diagonal
     public boolean isDiagonalMatrix() {
         if(this.rows == this.columns){
             for(int i = 0; i < this.rows; i++) {
@@ -122,5 +123,34 @@ public class Matrix {
         }
         return false;
     }
+    // Return true if the diagonal matrix is an identity matrix
+    public boolean isIdentityMatrix(){
+        if(isDiagonalMatrix()){
+            for(int i = 0; i < this.rows; i++){
+                for(int j = 0; j < this.columns; j++) {
+                    if(i == j) {
+                        if(this.matrix[i][j] != 1) return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 
+    // Return true if the diagonal matrix is a scalar matrix
+    public boolean isScalarMatrix() {
+        if (isDiagonalMatrix()) {
+            for (int i = 0; i < this.rows; i++) {
+                for (int j = 0; j < this.columns; j++) {
+                    if (i == j) {
+                        if (this.matrix[i][j] != this.matrix[0][0]) return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+        
 }
