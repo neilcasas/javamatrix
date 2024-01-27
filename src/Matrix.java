@@ -98,4 +98,15 @@ public class Matrix {
         }
     }
 
+    // Creates a transposed matrix
+    public Matrix transpose(){
+        Matrix transposed = new Matrix(this.columns, this.rows);
+        for(int i = 0; i < this.rows; i++){
+            for(int j = 0; j < this.columns; j++){
+                transposed.matrix[j][i] = this.matrix[i][j];
+            }
+        }
+        return transposed;
+    }
+    
 }
