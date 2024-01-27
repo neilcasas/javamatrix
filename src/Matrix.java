@@ -62,13 +62,17 @@ public class Matrix {
         }
     }
 
-    public static void main(String[] args) {
-        Matrix matrix = new Matrix(2,2);
-        matrix.fill();
-        matrix.display();
-        matrix.scalarMultiply(8);
-        matrix.display();
-
+    // Returns true if two matrices are equal
+    public boolean equals(Matrix other){
+        if(this.rows != other.rows || this.columns != other.columns){
+            return false;
+        } else {
+            for(int i = 0; i < this.rows; i++){
+                for(int j = 0; j < this.columns; j++){
+                    if (this.matrix[i][j] != other.matrix[i][j]) return false;
+                }
+            }
+        }
+        return true;
     }
-
 }
