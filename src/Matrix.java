@@ -108,5 +108,19 @@ public class Matrix {
         }
         return transposed;
     }
-    
+
+    public boolean isDiagonalMatrix() {
+        if(this.rows == this.columns){
+            for(int i = 0; i < this.rows; i++) {
+                for(int j = 0; j < this.columns; j++){
+                    if(i != j){
+                        if(this.matrix[i][j] != 0) return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
 }
