@@ -9,22 +9,29 @@ public class Matrix {
         if(rows <= max && columns <= max){
             this.rows = rows;
             this.columns = columns;
-            matrix = new int[rows][columns];
+            this.matrix = new int[rows][columns];
         } else {
             throw new IllegalArgumentException("Invalid matrix dimension.");
         }
     }
     public Matrix() {
-        matrix = new int[3][3];
+        this.matrix = new int[3][3];
     }
 
     // Methods
-    public void displayMatrix(Matrix matrix){
-        
+    public void display(){
+        for(int i = 0; i < this.rows; i++){
+            for(int j = 0; j < this.columns; j++){
+                System.out.printf("%2d", this.matrix[i][j]);
+            }
+            System.out.println();
+        }
     }
-    public boolean isSquareMatrix(Matrix matrix){
+    public boolean isSquareMatrix(){
         return this.rows == this.columns;
     }
-
+    public void append(int row, int column, int value){
+        this.matrix[row][column] = value;
+    }
 
 }
